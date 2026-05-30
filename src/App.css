@@ -794,6 +794,24 @@ h3 {
   overflow-y: auto;
 }
 
+.study-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.study-sidebar::-webkit-scrollbar-track {
+  background: var(--bg-elevated);
+  border-radius: 3px;
+}
+
+.study-sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 3px;
+}
+
+.study-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
 .study-sidebar .section {
   margin-bottom: 1rem;
 }
