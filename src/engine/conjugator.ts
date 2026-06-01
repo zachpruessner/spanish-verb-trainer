@@ -1,6 +1,6 @@
 import type { Person, Tense, ConjugationEntry } from '../types';
 
-const regularEndings: Record<string, Record<Tense, ConjugationEntry>> = {
+export const regularEndings: Record<string, Record<Tense, ConjugationEntry>> = {
   ar: {
     present: { yo: 'o', 'tú': 'as', 'él': 'a', nosotros: 'amos', ellos: 'an' },
     preterite: { yo: 'é', 'tú': 'aste', 'él': 'ó', nosotros: 'amos', ellos: 'aron' },

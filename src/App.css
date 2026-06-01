@@ -758,6 +758,36 @@ h3 {
   flex: 1;
 }
 
+.study-tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--bg-elevated);
+  border-radius: var(--radius);
+  padding: 4px;
+  border: 1px solid var(--border);
+}
+
+.study-tab {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.study-tab:hover {
+  color: var(--text);
+}
+
+.study-tab.active {
+  background: var(--primary);
+  color: white;
+}
+
 .header-spacer {
   flex: 1;
 }
@@ -1020,6 +1050,372 @@ h3 {
   font-size: 1.125rem;
 }
 
+/* Patterns Screen */
+.patterns-screen {
+  min-height: 60vh;
+}
+
+.patterns-toolbar {
+  margin-bottom: 1.5rem;
+}
+
+.patterns-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.patterns-filter-bar button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.patterns-filter-bar button:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.patterns-filter-bar button.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.patterns-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pattern-section {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.pattern-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.pattern-section-description {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Accordion */
+.pattern-accordion {
+  background: var(--bg-elevated);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.pattern-accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.pattern-accordion-header:hover {
+  background: var(--surface-hover);
+}
+
+.pattern-accordion-title {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.pattern-accordion-chevron {
+  transition: transform 0.2s ease;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.pattern-accordion-chevron.open {
+  transform: rotate(180deg);
+}
+
+.pattern-accordion-content {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Regular Endings Grid */
+.regular-endings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.ending-group {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+
+.ending-group-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: 0.375rem;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.ending-type {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+}
+
+.ending-type.ar {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success-border);
+}
+
+.ending-type.er {
+  background: var(--primary-dim);
+  color: var(--primary-hover);
+  border: 1px solid rgba(129, 140, 248, 0.3);
+}
+
+.ending-type.ir {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.ending-group-example {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.pattern-endings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pattern-endings-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.pattern-endings-table th {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.pattern-endings-table tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.pattern-endings-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.pattern-endings-table td {
+  padding: 0.5rem 0.75rem;
+}
+
+.ending-cell {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9375rem;
+}
+
+.ending-highlight {
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+
+.pattern-ending-note {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+}
+
+.pattern-ending-note strong {
+  color: var(--text);
+}
+
+/* Pattern Cards */
+.pattern-card {
+  background: var(--bg-elevated);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.pattern-card:last-child {
+  margin-bottom: 0;
+}
+
+.pattern-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.pattern-change-label {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  background: var(--primary-dim);
+  color: var(--primary-hover);
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+}
+
+.pattern-card-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.pattern-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.examples-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.examples-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.examples-list li {
+  font-size: 0.875rem;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.example-conjugation {
+  color: var(--text-secondary);
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8125rem;
+}
+
+.example-note {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
+/* Verb Link */
+.verb-link {
+  background: none;
+  border: none;
+  color: var(--primary-hover);
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.verb-link:hover {
+  text-decoration-color: var(--primary-hover);
+}
+
+/* Unique Irregulars */
+.unique-irregulars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.unique-irregular-card {
+  background: var(--bg-elevated);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-left: 3px solid var(--error);
+}
+
+.unique-irregular-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.unique-irregular-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.unique-irregular-name .verb-link {
+  font-size: inherit;
+}
+
+.unique-irregular-english {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.unique-irregular-note {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .app {
     padding: 24px 20px;
@@ -1066,5 +1462,23 @@ h3 {
 
   .start-actions {
     flex-direction: column;
+  }
+
+  .regular-endings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .unique-irregulars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .study-tabs {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .study-header {
+    flex-wrap: wrap;
   }
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { Verb, Tense, Person } from '../types';
 import { getConjugation } from '../engine/conjugator';
-import { verbs } from '../data/verbs';
+import { verbs, getVerbById } from '../data/verbs';
+import { PatternsScreen } from './PatternsScreen';
 
 interface StudyScreenProps {
   onBack: () => void;
@@ -32,9 +33,18 @@ function getConjugationForDisplay(verb: Verb, tense: Tense, person: Person): str
 }
 
 export function StudyScreen({ onBack }: StudyScreenProps) {
+  const [viewMode, setViewMode] = useState<'verb' | 'patterns'>('verb');
   const [selectedVerb, setSelectedVerb] = useState<Verb | null>(null);
   const [selectedTenses, setSelectedTenses] = useState<Set<Tense>>(new Set(['present', 'preterite', 'imperfect']));
   const [verbFilter, setVerbFilter] = useState<'all' | 'regular' | 'irregular' | 'stem_change' | 'ar' | 'er' | 'ir'>('all');
+
+  const handleVerbSelectFromPatterns = (verbId: string) => {
+    const verb = getVerbById(verbId);
+    if (verb) {
+      setSelectedVerb(verb);
+      setViewMode('verb');
+    }
+  };
 
   const getFilteredVerbs = () => {
     switch (verbFilter) {
@@ -84,101 +94,118 @@ export function StudyScreen({ onBack }: StudyScreenProps) {
           ← Back
         </button>
         <h1>Verb Conjugation Reference</h1>
-        <div className="header-spacer" />
+        <div className="study-tabs">
+          <button
+            className={`study-tab ${viewMode === 'verb' ? 'active' : ''}`}
+            onClick={() => setViewMode('verb')}
+          >
+            Verb
+          </button>
+          <button
+            className={`study-tab ${viewMode === 'patterns' ? 'active' : ''}`}
+            onClick={() => setViewMode('patterns')}
+          >
+            Patterns
+          </button>
+        </div>
       </div>
 
-      <div className="study-layout">
-        <aside className="study-sidebar">
-          <section className="section">
-            <h2>Select Verb</h2>
-            <div className="filter-bar">
-              <button className={verbFilter === 'all' ? 'active' : ''} onClick={() => setVerbFilter('all')}>All</button>
-              <button className={verbFilter === 'regular' ? 'active' : ''} onClick={() => setVerbFilter('regular')}>Regular</button>
-              <button className={verbFilter === 'irregular' ? 'active' : ''} onClick={() => setVerbFilter('irregular')}>Irregular</button>
-              <button className={verbFilter === 'stem_change' ? 'active' : ''} onClick={() => setVerbFilter('stem_change')}>Stem</button>
-            </div>
-            <div className="study-verb-list">
-              {filteredVerbs.map((verb) => (
+      {viewMode === 'verb' ? (
+        <div className="study-layout">
+          <aside className="study-sidebar">
+            <section className="section">
+              <h2>Select Verb</h2>
+              <div className="filter-bar">
+                <button className={verbFilter === 'all' ? 'active' : ''} onClick={() => setVerbFilter('all')}>All</button>
+                <button className={verbFilter === 'regular' ? 'active' : ''} onClick={() => setVerbFilter('regular')}>Regular</button>
+                <button className={verbFilter === 'irregular' ? 'active' : ''} onClick={() => setVerbFilter('irregular')}>Irregular</button>
+                <button className={verbFilter === 'stem_change' ? 'active' : ''} onClick={() => setVerbFilter('stem_change')}>Stem</button>
+              </div>
+              <div className="study-verb-list">
+                {filteredVerbs.map((verb) => (
+                  <button
+                    key={verb.id}
+                    className={`study-verb-item ${selectedVerb?.id === verb.id ? 'selected' : ''} ${verb.type}`}
+                    onClick={() => setSelectedVerb(verb)}
+                  >
+                    <span className="verb-name">{verb.infinitive}</span>
+                    <span className="verb-meaning">{verb.english}</span>
+                  </button>
+                ))}
+              </div>
+            </section>
+
+            <section className="section">
+              <h2>Tenses</h2>
+              <div className="tense-actions">
+                <button onClick={selectAllTenses}>All</button>
+                <button onClick={clearTenses}>Clear</button>
+              </div>
+              {tenses.map((t) => (
                 <button
-                  key={verb.id}
-                  className={`study-verb-item ${selectedVerb?.id === verb.id ? 'selected' : ''} ${verb.type}`}
-                  onClick={() => setSelectedVerb(verb)}
+                  key={t.value}
+                  className={`tense-chip ${selectedTenses.has(t.value) ? 'selected' : ''}`}
+                  onClick={() => toggleTense(t.value)}
                 >
-                  <span className="verb-name">{verb.infinitive}</span>
-                  <span className="verb-meaning">{verb.english}</span>
+                  {t.label}
                 </button>
               ))}
-            </div>
-          </section>
+            </section>
+          </aside>
 
-          <section className="section">
-            <h2>Tenses</h2>
-            <div className="tense-actions">
-              <button onClick={selectAllTenses}>All</button>
-              <button onClick={clearTenses}>Clear</button>
-            </div>
-            {tenses.map((t) => (
-              <button
-                key={t.value}
-                className={`tense-chip ${selectedTenses.has(t.value) ? 'selected' : ''}`}
-                onClick={() => toggleTense(t.value)}
-              >
-                {t.label}
-              </button>
-            ))}
-          </section>
-        </aside>
+          <main className="study-content">
+            {selectedVerb ? (
+              <div className="conjugation-display">
+                <div className="conjugation-header">
+                  <h2 className="conjugation-title">{selectedVerb.infinitive}</h2>
+                  <span className="conjugation-subtitle">{selectedVerb.english}</span>
+                  <span className={`verb-type-badge ${selectedVerb.type}`}>
+                    {selectedVerb.type === 'stem_change' ? 'stem-changing' : selectedVerb.type}
+                  </span>
+                </div>
 
-        <main className="study-content">
-          {selectedVerb ? (
-            <div className="conjugation-display">
-              <div className="conjugation-header">
-                <h2 className="conjugation-title">{selectedVerb.infinitive}</h2>
-                <span className="conjugation-subtitle">{selectedVerb.english}</span>
-                <span className={`verb-type-badge ${selectedVerb.type}`}>
-                  {selectedVerb.type === 'stem_change' ? 'stem-changing' : selectedVerb.type}
-                </span>
+                <div className="tense-tables">
+                  {tenses
+                    .filter((t) => selectedTenses.has(t.value))
+                    .map((tense) => (
+                      <div key={tense.value} className="tense-table">
+                        <h3 className="tense-label">{tense.label}</h3>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Person</th>
+                              <th>Conjugation</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {people.map((person) => {
+                              const conjugation = getConjugationForDisplay(selectedVerb, tense.value, person.value);
+                              const hasOverride = selectedVerb.conjugations[tense.value]?.[person.value];
+                              return (
+                                <tr key={person.value}>
+                                  <td className="person-cell">{person.label}</td>
+                                  <td className={`conjugation-cell ${hasOverride ? 'irregular' : ''}`}>
+                                    {conjugation}
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    ))}
+                </div>
               </div>
-
-              <div className="tense-tables">
-                {tenses
-                  .filter((t) => selectedTenses.has(t.value))
-                  .map((tense) => (
-                    <div key={tense.value} className="tense-table">
-                      <h3 className="tense-label">{tense.label}</h3>
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>Person</th>
-                            <th>Conjugation</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {people.map((person) => {
-                            const conjugation = getConjugationForDisplay(selectedVerb, tense.value, person.value);
-                            const hasOverride = selectedVerb.conjugations[tense.value]?.[person.value];
-                            return (
-                              <tr key={person.value}>
-                                <td className="person-cell">{person.label}</td>
-                                <td className={`conjugation-cell ${hasOverride ? 'irregular' : ''}`}>
-                                  {conjugation}
-                                </td>
-                              </tr>
-                            );
-                          })}
-                        </tbody>
-                      </table>
-                    </div>
-                  ))}
+            ) : (
+              <div className="empty-state">
+                <p>Select a verb from the sidebar to view its conjugations</p>
               </div>
-            </div>
-          ) : (
-            <div className="empty-state">
-              <p>Select a verb from the sidebar to view its conjugations</p>
-            </div>
-          )}
-        </main>
-      </div>
+            )}
+          </main>
+        </div>
+      ) : (
+        <PatternsScreen onVerbSelect={handleVerbSelectFromPatterns} />
+      )}
     </div>
   );
 }
