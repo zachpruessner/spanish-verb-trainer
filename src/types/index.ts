@@ -1,4 +1,4 @@
-export type Person = 'yo' | 'tu' | 'él' | 'nosotros' | 'ellos';
+export type Person = 'yo' | 'tú' | 'él' | 'nosotros' | 'ellos';
 
 export type Tense =
   | 'present'
@@ -18,7 +18,7 @@ export type HintLevel = 'verb' | 'infinitive' | 'none' | 'reverse';
 
 export interface ConjugationEntry {
   yo: string;
-  tu: string;
+  'tú': string;
   'él': string;
   nosotros: string;
   ellos: string;

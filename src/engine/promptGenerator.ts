@@ -3,7 +3,7 @@ import { getConjugation } from './conjugator';
 
 const personEnglish: Record<Person, string> = {
   yo: 'I',
-  tu: 'you',
+  'tú': 'you',
   'él': 'he/she',
   nosotros: 'we',
   ellos: 'they',
@@ -217,21 +217,22 @@ function getEnglishVerb(verb: Verb, tense: Tense): string {
   if (translations && translations[tense]) {
     return translations[tense];
   }
+  const base = verb.english.replace(/^to\s+/, '');
   const fallback: Record<Tense, string> = {
-    present: verb.english,
-    preterite: `${verb.english}(past)`,
-    imperfect: `used to ${verb.english}`,
-    future: `will ${verb.english}`,
-    conditional: `would ${verb.english}`,
-    present_progressive: `${verb.english}ing`,
-    present_perfect: `${verb.english}(past part.)`,
-    ir_a_infinitive: `going to ${verb.english}`,
+    present: base,
+    preterite: `${base}(past)`,
+    imperfect: `used to ${base}`,
+    future: `will ${base}`,
+    conditional: `would ${base}`,
+    present_progressive: `${base}ing`,
+    present_perfect: `${base}(past part.)`,
+    ir_a_infinitive: `going to ${base}`,
   };
   return fallback[tense];
 }
 
 function buildEnglishPrompt(person: Person, englishVerb: string): string {
-  const subject = personEnglish[person].toLowerCase();
+  const subject = person === 'yo' ? 'I' : personEnglish[person].toLowerCase();
   return `${subject} ${englishVerb}`;
 }
 
@@ -262,11 +263,23 @@ export function generatePrompt(
 export function generateRandomPrompt(
   verbs: Verb[],
   tenses: Tense[],
-  people: Person[]
+  people: Person[],
+  previousPrompt?: Prompt
 ): Prompt {
-  const verb = verbs[Math.floor(Math.random() * verbs.length)];
-  const tense = tenses[Math.floor(Math.random() * tenses.length)];
-  const person = people[Math.floor(Math.random() * people.length)];
+  let verb: Verb;
+  let tense: Tense;
+  let person: Person;
+
+  do {
+    verb = verbs[Math.floor(Math.random() * verbs.length)];
+    tense = tenses[Math.floor(Math.random() * tenses.length)];
+    person = people[Math.floor(Math.random() * people.length)];
+  } while (
+    previousPrompt &&
+    verb.id === previousPrompt.verb.id &&
+    tense === previousPrompt.tense &&
+    person === previousPrompt.person
+  );
 
   return generatePrompt(verb, tense, person);
 }

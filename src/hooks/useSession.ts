@@ -1,8 +1,8 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import type { SessionConfig, SessionState, Attempt, Person } from '../types';
+import type { SessionConfig, SessionState, Attempt, Person, Prompt } from '../types';
 import { generateRandomPrompt } from '../engine/promptGenerator';
 
-const people: Person[] = ['yo', 'tu', 'él', 'nosotros', 'ellos'];
+const people: Person[] = ['yo', 'tú', 'él', 'nosotros', 'ellos'];
 
 export function useSession(config: SessionConfig | null) {
   const [state, setState] = useState<SessionState>({
@@ -19,14 +19,16 @@ export function useSession(config: SessionConfig | null) {
   });
 
   const promptStartTime = useRef<Date | null>(null);
+  const currentPromptRef = useRef<Prompt | null>(null);
 
   const generateNextPrompt = useCallback(() => {
     if (!config || config.verbs.length === 0 || config.tenses.length === 0) {
       return;
     }
 
-    const prompt = generateRandomPrompt(config.verbs, config.tenses, people);
+    const prompt = generateRandomPrompt(config.verbs, config.tenses, people, currentPromptRef.current ?? undefined);
     promptStartTime.current = new Date();
+    currentPromptRef.current = prompt;
 
     setState((prev) => ({
       ...prev,

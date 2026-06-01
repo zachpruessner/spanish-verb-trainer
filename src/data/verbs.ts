@@ -28,8 +28,8 @@ export const verbs: Verb[] = [
     english: 'to think',
     type: 'stem_change',
     conjugations: {
-      present: { yo: 'pienso', tu: 'piensas', 'él': 'piensa', nosotros: 'pensamos', ellos: 'piensan' },
-      preterite: { yo: 'pensé', tu: 'pensaste', 'él': 'pensó', nosotros: 'pensamos', ellos: 'pensaron' },
+      present: { yo: 'pienso', 'tú': 'piensas', 'él': 'piensa', nosotros: 'pensamos', ellos: 'piensan' },
+      preterite: { yo: 'pensé', 'tú': 'pensaste', 'él': 'pensó', nosotros: 'pensamos', ellos: 'pensaron' },
     },
   },
   {
@@ -38,10 +38,10 @@ export const verbs: Verb[] = [
     english: 'to want',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'quiero', tu: 'quieres', 'él': 'quiere', nosotros: 'queremos', ellos: 'quieren' },
-      preterite: { yo: 'quise', tu: 'quisiste', 'él': 'quiso', nosotros: 'quisimos', ellos: 'quisieron' },
-      future: { yo: 'querré', tu: 'querrás', 'él': 'querrá', nosotros: 'querremos', ellos: 'querrán' },
-      conditional: { yo: 'querría', tu: 'querrías', 'él': 'querría', nosotros: 'querríamos', ellos: 'querrían' },
+      present: { yo: 'quiero', 'tú': 'quieres', 'él': 'quiere', nosotros: 'queremos', ellos: 'quieren' },
+      preterite: { yo: 'quise', 'tú': 'quisiste', 'él': 'quiso', nosotros: 'quisimos', ellos: 'quisieron' },
+      future: { yo: 'querré', 'tú': 'querrás', 'él': 'querrá', nosotros: 'querremos', ellos: 'querrán' },
+      conditional: { yo: 'querría', 'tú': 'querrías', 'él': 'querría', nosotros: 'querríamos', ellos: 'querrían' },
     },
   },
   {
@@ -50,10 +50,10 @@ export const verbs: Verb[] = [
     english: 'to have',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'tengo', tu: 'tienes', 'él': 'tiene', nosotros: 'tenemos', ellos: 'tienen' },
-      preterite: { yo: 'tuve', tu: 'tuviste', 'él': 'tuvo', nosotros: 'tuvimos', ellos: 'tuvieron' },
-      future: { yo: 'tendré', tu: 'tendrás', 'él': 'tendrá', nosotros: 'tendremos', ellos: 'tendrán' },
-      conditional: { yo: 'tendría', tu: 'tendrías', 'él': 'tendría', nosotros: 'tendríamos', ellos: 'tendrían' },
+      present: { yo: 'tengo', 'tú': 'tienes', 'él': 'tiene', nosotros: 'tenemos', ellos: 'tienen' },
+      preterite: { yo: 'tuve', 'tú': 'tuviste', 'él': 'tuvo', nosotros: 'tuvimos', ellos: 'tuvieron' },
+      future: { yo: 'tendré', 'tú': 'tendrás', 'él': 'tendrá', nosotros: 'tendremos', ellos: 'tendrán' },
+      conditional: { yo: 'tendría', 'tú': 'tendrías', 'él': 'tendría', nosotros: 'tendríamos', ellos: 'tendrían' },
     },
   },
   {
@@ -62,10 +62,10 @@ export const verbs: Verb[] = [
     english: 'to do/make',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'hago', tu: 'haces', 'él': 'hace', nosotros: 'hacemos', ellos: 'hacen' },
-      preterite: { yo: 'hice', tu: 'hiciste', 'él': 'hizo', nosotros: 'hicimos', ellos: 'hicieron' },
-      future: { yo: 'haré', tu: 'harás', 'él': 'hará', nosotros: 'haremos', ellos: 'harán' },
-      conditional: { yo: 'haría', tu: 'harías', 'él': 'haría', nosotros: 'haríamos', ellos: 'harían' },
+      present: { yo: 'hago', 'tú': 'haces', 'él': 'hace', nosotros: 'hacemos', ellos: 'hacen' },
+      preterite: { yo: 'hice', 'tú': 'hiciste', 'él': 'hizo', nosotros: 'hicimos', ellos: 'hicieron' },
+      future: { yo: 'haré', 'tú': 'harás', 'él': 'hará', nosotros: 'haremos', ellos: 'harán' },
+      conditional: { yo: 'haría', 'tú': 'harías', 'él': 'haría', nosotros: 'haríamos', ellos: 'harían' },
     },
   },
   {
@@ -74,11 +74,11 @@ export const verbs: Verb[] = [
     english: 'to be (permanent)',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'soy', tu: 'eres', 'él': 'es', nosotros: 'somos', ellos: 'son' },
-      preterite: { yo: 'fui', tu: 'fuiste', 'él': 'fue', nosotros: 'fuimos', ellos: 'fueron' },
-      imperfect: { yo: 'era', tu: 'eras', 'él': 'era', nosotros: 'éramos', ellos: 'eran' },
-      future: { yo: 'seré', tu: 'serás', 'él': 'será', nosotros: 'seremos', ellos: 'serán' },
-      conditional: { yo: 'sería', tu: 'serías', 'él': 'sería', nosotros: 'seríamos', ellos: 'serían' },
+      present: { yo: 'soy', 'tú': 'eres', 'él': 'es', nosotros: 'somos', ellos: 'son' },
+      preterite: { yo: 'fui', 'tú': 'fuiste', 'él': 'fue', nosotros: 'fuimos', ellos: 'fueron' },
+      imperfect: { yo: 'era', 'tú': 'eras', 'él': 'era', nosotros: 'éramos', ellos: 'eran' },
+      future: { yo: 'seré', 'tú': 'serás', 'él': 'será', nosotros: 'seremos', ellos: 'serán' },
+      conditional: { yo: 'sería', 'tú': 'serías', 'él': 'sería', nosotros: 'seríamos', ellos: 'serían' },
     },
   },
   {
@@ -87,11 +87,11 @@ export const verbs: Verb[] = [
     english: 'to go',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'voy', tu: 'vas', 'él': 'va', nosotros: 'vamos', ellos: 'van' },
-      preterite: { yo: 'fui', tu: 'fuiste', 'él': 'fue', nosotros: 'fuimos', ellos: 'fueron' },
-      imperfect: { yo: 'iba', tu: 'ibas', 'él': 'iba', nosotros: 'íbamos', ellos: 'iban' },
-      future: { yo: 'iré', tu: 'irás', 'él': 'irá', nosotros: 'iremos', ellos: 'irán' },
-      conditional: { yo: 'iría', tu: 'irías', 'él': 'iría', nosotros: 'iríamos', ellos: 'irían' },
+      present: { yo: 'voy', 'tú': 'vas', 'él': 'va', nosotros: 'vamos', ellos: 'van' },
+      preterite: { yo: 'fui', 'tú': 'fuiste', 'él': 'fue', nosotros: 'fuimos', ellos: 'fueron' },
+      imperfect: { yo: 'iba', 'tú': 'ibas', 'él': 'iba', nosotros: 'íbamos', ellos: 'iban' },
+      future: { yo: 'iré', 'tú': 'irás', 'él': 'irá', nosotros: 'iremos', ellos: 'irán' },
+      conditional: { yo: 'iría', 'tú': 'irías', 'él': 'iría', nosotros: 'iríamos', ellos: 'irían' },
     },
   },
   {
@@ -100,10 +100,10 @@ export const verbs: Verb[] = [
     english: 'to come',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'vengo', tu: 'vienes', 'él': 'viene', nosotros: 'venimos', ellos: 'vienen' },
-      preterite: { yo: 'vine', tu: 'viniste', 'él': 'vino', nosotros: 'vinimos', ellos: 'vinieron' },
-      future: { yo: 'vendré', tu: 'vendrás', 'él': 'vendrá', nosotros: 'vendremos', ellos: 'vendrán' },
-      conditional: { yo: 'vendría', tu: 'vendrías', 'él': 'vendría', nosotros: 'vendríamos', ellos: 'vendrían' },
+      present: { yo: 'vengo', 'tú': 'vienes', 'él': 'viene', nosotros: 'venimos', ellos: 'vienen' },
+      preterite: { yo: 'vine', 'tú': 'viniste', 'él': 'vino', nosotros: 'vinimos', ellos: 'vinieron' },
+      future: { yo: 'vendré', 'tú': 'vendrás', 'él': 'vendrá', nosotros: 'vendremos', ellos: 'vendrán' },
+      conditional: { yo: 'vendría', 'tú': 'vendrías', 'él': 'vendría', nosotros: 'vendríamos', ellos: 'vendrían' },
     },
   },
   {
@@ -112,10 +112,10 @@ export const verbs: Verb[] = [
     english: 'to say/tell',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'digo', tu: 'dices', 'él': 'dice', nosotros: 'decimos', ellos: 'dicen' },
-      preterite: { yo: 'dije', tu: 'dijiste', 'él': 'dijo', nosotros: 'dijimos', ellos: 'dijeron' },
-      future: { yo: 'diré', tu: 'dirás', 'él': 'dirá', nosotros: 'diremos', ellos: 'dirán' },
-      conditional: { yo: 'diría', tu: 'dirías', 'él': 'diría', nosotros: 'diríamos', ellos: 'dirían' },
+      present: { yo: 'digo', 'tú': 'dices', 'él': 'dice', nosotros: 'decimos', ellos: 'dicen' },
+      preterite: { yo: 'dije', 'tú': 'dijiste', 'él': 'dijo', nosotros: 'dijimos', ellos: 'dijeron' },
+      future: { yo: 'diré', 'tú': 'dirás', 'él': 'dirá', nosotros: 'diremos', ellos: 'dirán' },
+      conditional: { yo: 'diría', 'tú': 'dirías', 'él': 'diría', nosotros: 'diríamos', ellos: 'dirían' },
     },
   },
   {
@@ -124,10 +124,10 @@ export const verbs: Verb[] = [
     english: 'to be able to',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'puedo', tu: 'puedes', 'él': 'puede', nosotros: 'podemos', ellos: 'pueden' },
-      preterite: { yo: 'pude', tu: 'pudiste', 'él': 'pudo', nosotros: 'pudimos', ellos: 'pudieron' },
-      future: { yo: 'podré', tu: 'podrás', 'él': 'podrá', nosotros: 'podremos', ellos: 'podrán' },
-      conditional: { yo: 'podría', tu: 'podrías', 'él': 'podría', nosotros: 'podríamos', ellos: 'podrían' },
+      present: { yo: 'puedo', 'tú': 'puedes', 'él': 'puede', nosotros: 'podemos', ellos: 'pueden' },
+      preterite: { yo: 'pude', 'tú': 'pudiste', 'él': 'pudo', nosotros: 'pudimos', ellos: 'pudieron' },
+      future: { yo: 'podré', 'tú': 'podrás', 'él': 'podrá', nosotros: 'podremos', ellos: 'podrán' },
+      conditional: { yo: 'podría', 'tú': 'podrías', 'él': 'podría', nosotros: 'podríamos', ellos: 'podrían' },
     },
   },
   {
@@ -136,10 +136,10 @@ export const verbs: Verb[] = [
     english: 'to know',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'sé', tu: 'sabes', 'él': 'sabe', nosotros: 'sabemos', ellos: 'saben' },
-      preterite: { yo: 'supe', tu: 'supiste', 'él': 'supo', nosotros: 'supimos', ellos: 'supieron' },
-      future: { yo: 'sabré', tu: 'sabrás', 'él': 'sabrá', nosotros: 'sabremos', ellos: 'sabrán' },
-      conditional: { yo: 'sabría', tu: 'sabrías', 'él': 'sabría', nosotros: 'sabríamos', ellos: 'sabrían' },
+      present: { yo: 'sé', 'tú': 'sabes', 'él': 'sabe', nosotros: 'sabemos', ellos: 'saben' },
+      preterite: { yo: 'supe', 'tú': 'supiste', 'él': 'supo', nosotros: 'supimos', ellos: 'supieron' },
+      future: { yo: 'sabré', 'tú': 'sabrás', 'él': 'sabrá', nosotros: 'sabremos', ellos: 'sabrán' },
+      conditional: { yo: 'sabría', 'tú': 'sabrías', 'él': 'sabría', nosotros: 'sabríamos', ellos: 'sabrían' },
     },
   },
   {
@@ -148,10 +148,10 @@ export const verbs: Verb[] = [
     english: 'to put',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'pongo', tu: 'pones', 'él': 'pone', nosotros: 'ponemos', ellos: 'ponen' },
-      preterite: { yo: 'puse', tu: 'pusiste', 'él': 'puso', nosotros: 'pusimos', ellos: 'pusieron' },
-      future: { yo: 'pondré', tu: 'pondrás', 'él': 'pondrá', nosotros: 'pondremos', ellos: 'pondrán' },
-      conditional: { yo: 'pondría', tu: 'pondrías', 'él': 'pondría', nosotros: 'pondríamos', ellos: 'pondrían' },
+      present: { yo: 'pongo', 'tú': 'pones', 'él': 'pone', nosotros: 'ponemos', ellos: 'ponen' },
+      preterite: { yo: 'puse', 'tú': 'pusiste', 'él': 'puso', nosotros: 'pusimos', ellos: 'pusieron' },
+      future: { yo: 'pondré', 'tú': 'pondrás', 'él': 'pondrá', nosotros: 'pondremos', ellos: 'pondrán' },
+      conditional: { yo: 'pondría', 'tú': 'pondrías', 'él': 'pondría', nosotros: 'pondríamos', ellos: 'pondrían' },
     },
   },
   {
@@ -160,10 +160,10 @@ export const verbs: Verb[] = [
     english: 'to give',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'doy', tu: 'das', 'él': 'da', nosotros: 'damos', ellos: 'dan' },
-      preterite: { yo: 'di', tu: 'diste', 'él': 'dio', nosotros: 'dimos', ellos: 'dieron' },
-      future: { yo: 'daré', tu: 'darás', 'él': 'dará', nosotros: 'daremos', ellos: 'darán' },
-      conditional: { yo: 'daría', tu: 'darías', 'él': 'daría', nosotros: 'daríamos', ellos: 'darían' },
+      present: { yo: 'doy', 'tú': 'das', 'él': 'da', nosotros: 'damos', ellos: 'dan' },
+      preterite: { yo: 'di', 'tú': 'diste', 'él': 'dio', nosotros: 'dimos', ellos: 'dieron' },
+      future: { yo: 'daré', 'tú': 'darás', 'él': 'dará', nosotros: 'daremos', ellos: 'darán' },
+      conditional: { yo: 'daría', 'tú': 'darías', 'él': 'daría', nosotros: 'daríamos', ellos: 'darían' },
     },
   },
   {
@@ -172,11 +172,11 @@ export const verbs: Verb[] = [
     english: 'to see',
     type: 'irregular',
     conjugations: {
-      present: { yo: 'veo', tu: 'ves', 'él': 've', nosotros: 'vemos', ellos: 'ven' },
-      preterite: { yo: 'vi', tu: 'viste', 'él': 'vio', nosotros: 'vimos', ellos: 'vieron' },
-      imperfect: { yo: 'veía', tu: 'veías', 'él': 'veía', nosotros: 'veíamos', ellos: 'veían' },
-      future: { yo: 'veré', tu: 'verás', 'él': 'verá', nosotros: 'veremos', ellos: 'verán' },
-      conditional: { yo: 'vería', tu: 'verías', 'él': 'vería', nosotros: 'veríamos', ellos: 'verían' },
+      present: { yo: 'veo', 'tú': 'ves', 'él': 've', nosotros: 'vemos', ellos: 'ven' },
+      preterite: { yo: 'vi', 'tú': 'viste', 'él': 'vio', nosotros: 'vimos', ellos: 'vieron' },
+      imperfect: { yo: 'veía', 'tú': 'veías', 'él': 'veía', nosotros: 'veíamos', ellos: 'veían' },
+      future: { yo: 'veré', 'tú': 'verás', 'él': 'verá', nosotros: 'veremos', ellos: 'verán' },
+      conditional: { yo: 'vería', 'tú': 'verías', 'él': 'vería', nosotros: 'veríamos', ellos: 'verían' },
     },
   },
   {
@@ -185,8 +185,8 @@ export const verbs: Verb[] = [
     english: 'to begin',
     type: 'stem_change',
     conjugations: {
-      present: { yo: 'empiezo', tu: 'empiezas', 'él': 'empieza', nosotros: 'empezamos', ellos: 'empiezan' },
-      preterite: { yo: 'empecé', tu: 'empezaste', 'él': 'empezó', nosotros: 'empezamos', ellos: 'empezaron' },
+      present: { yo: 'empiezo', 'tú': 'empiezas', 'él': 'empieza', nosotros: 'empezamos', ellos: 'empiezan' },
+      preterite: { yo: 'empecé', 'tú': 'empezaste', 'él': 'empezó', nosotros: 'empezamos', ellos: 'empezaron' },
     },
   },
   {
@@ -195,8 +195,8 @@ export const verbs: Verb[] = [
     english: 'to understand',
     type: 'stem_change',
     conjugations: {
-      present: { yo: 'entiendo', tu: 'entiendes', 'él': 'entiende', nosotros: 'entendemos', ellos: 'entienden' },
-      preterite: { yo: 'entendí', tu: 'entendiste', 'él': 'entendió', nosotros: 'entendimos', ellos: 'entendieron' },
+      present: { yo: 'entiendo', 'tú': 'entiendes', 'él': 'entiende', nosotros: 'entendemos', ellos: 'entienden' },
+      preterite: { yo: 'entendí', 'tú': 'entendiste', 'él': 'entendió', nosotros: 'entendimos', ellos: 'entendieron' },
     },
   },
   {
@@ -205,8 +205,8 @@ export const verbs: Verb[] = [
     english: 'to sleep',
     type: 'stem_change',
     conjugations: {
-      present: { yo: 'duermo', tu: 'duermes', 'él': 'duerme', nosotros: 'dormimos', ellos: 'duermen' },
-      preterite: { yo: 'dormí', tu: 'dormiste', 'él': 'durmió', nosotros: 'dormimos', ellos: 'durmieron' },
+      present: { yo: 'duermo', 'tú': 'duermes', 'él': 'duerme', nosotros: 'dormimos', ellos: 'duermen' },
+      preterite: { yo: 'dormí', 'tú': 'dormiste', 'él': 'durmió', nosotros: 'dormimos', ellos: 'durmieron' },
     },
   },
   {
@@ -215,8 +215,8 @@ export const verbs: Verb[] = [
     english: 'to prefer',
     type: 'stem_change',
     conjugations: {
-      present: { yo: 'prefiero', tu: 'prefieres', 'él': 'prefiere', nosotros: 'preferimos', ellos: 'prefieren' },
-      preterite: { yo: 'preferí', tu: 'preferiste', 'él': 'prefirió', nosotros: 'preferimos', ellos: 'prefirieron' },
+      present: { yo: 'prefiero', 'tú': 'prefieres', 'él': 'prefiere', nosotros: 'preferimos', ellos: 'prefieren' },
+      preterite: { yo: 'preferí', 'tú': 'preferiste', 'él': 'prefirió', nosotros: 'preferimos', ellos: 'prefirieron' },
     },
   },
   {
@@ -281,8 +281,8 @@ export const verbs: Verb[] = [
     english: 'to close',
     type: 'stem_change',
     conjugations: {
-      present: { yo: 'cierro', tu: 'cierras', 'él': 'cierra', nosotros: 'cerramos', ellos: 'cierran' },
-      preterite: { yo: 'cerré', tu: 'cerraste', 'él': 'cerró', nosotros: 'cerramos', ellos: 'cerraron' },
+      present: { yo: 'cierro', 'tú': 'cierras', 'él': 'cierra', nosotros: 'cerramos', ellos: 'cierran' },
+      preterite: { yo: 'cerré', 'tú': 'cerraste', 'él': 'cerró', nosotros: 'cerramos', ellos: 'cerraron' },
     },
   },
   {
@@ -291,8 +291,8 @@ export const verbs: Verb[] = [
     english: 'to lose',
     type: 'stem_change',
     conjugations: {
-      present: { yo: 'pierdo', tu: 'pierdes', 'él': 'pierde', nosotros: 'perdemos', ellos: 'pierden' },
-      preterite: { yo: 'perdí', tu: 'perdiste', 'él': 'perdió', nosotros: 'perdimos', ellos: 'perdieron' },
+      present: { yo: 'pierdo', 'tú': 'pierdes', 'él': 'pierde', nosotros: 'perdemos', ellos: 'pierden' },
+      preterite: { yo: 'perdí', 'tú': 'perdiste', 'él': 'perdió', nosotros: 'perdimos', ellos: 'perdieron' },
     },
   },
 ];

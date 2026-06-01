@@ -20,7 +20,7 @@ const tenses: { value: Tense; label: string }[] = [
 
 const people: { value: Person; label: string }[] = [
   { value: 'yo', label: 'yo' },
-  { value: 'tu', label: 'tú' },
+  { value: 'tú', label: 'tú' },
   { value: 'él', label: 'él/ella/ud.' },
   { value: 'nosotros', label: 'nosotros' },
   { value: 'ellos', label: 'ellos/uds.' },

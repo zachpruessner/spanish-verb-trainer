@@ -26,12 +26,6 @@ export function SessionScreen({ config, onEnd, onAttempt }: SessionScreenProps) 
     if (attempt) {
       onAttempt(attempt);
       setShowFeedback(true);
-
-      setTimeout(() => {
-        setShowFeedback(false);
-        setInput('');
-        nextPrompt();
-      }, 1500);
     }
   };
 
@@ -103,7 +97,7 @@ export function SessionScreen({ config, onEnd, onAttempt }: SessionScreenProps) 
           placeholder="Type your answer..."
           autoComplete="off"
           spellCheck={false}
-          disabled={state.isAnswered}
+          readOnly={state.isAnswered}
           className={state.isAnswered ? (state.attempts[state.attempts.length - 1]?.correct ? 'correct' : 'incorrect') : ''}
         />
         <div className="button-row">
