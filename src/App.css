@@ -1472,6 +1472,178 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .ser-ir-conjugation-grid {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ser-ir-conjugation-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .ser-ir-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ser-ir-verb-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .ser-ir-verb-name .verb-link {
+    font-size: inherit;
+  }
+
+  .ser-ir-verb-english {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .ser-ir-tense-block {
+    margin-bottom: 1.25rem;
+  }
+
+  .ser-ir-tense-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .ser-ir-tense-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .ser-ir-conjugation-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .ser-ir-conjugation-table tbody tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ser-ir-conjugation-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .ser-ir-conjugation-table td {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .ser-ir-person-cell {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    width: 35%;
+  }
+
+  .ser-ir-form-cell {
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    color: var(--primary-hover);
+  }
+
+  .shared-preterite-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+  }
+
+  .shared-preterite-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.25rem;
+  }
+
+  .shared-preterite-table thead tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .shared-preterite-table th {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-align: left;
+  }
+
+  .shared-preterite-table tbody tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .shared-preterite-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .shared-preterite-table td {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .shared-preterite-table .form-cell.shared {
+    font-weight: 600;
+    color: var(--warning);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 1rem;
+  }
+
+  .shared-preterite-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .example-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  .example-verb-tag {
+    padding: 0.25rem 0.625rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .example-verb-tag.ser-tag {
+    background: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-border);
+  }
+
+  .example-verb-tag.ir-tag {
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .example-sentence {
+    color: var(--text-secondary);
+  }
+
   .study-tabs {
     order: 3;
     width: 100%;

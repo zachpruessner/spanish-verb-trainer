@@ -104,6 +104,7 @@ const irregularFamilies: IrregularFamily[] = [
     description: 'These verbs have an irregular yo form ending in -go in the present tense. The rest of the present tense conjugates regularly (or with stem changes).',
     examples: [
       { verb: 'tener', detail: 'tengo', verbId: 'tener' },
+      { verb: 'estar', detail: 'estoy', verbId: 'estar' },
       { verb: 'hacer', detail: 'hago', verbId: 'hacer' },
       { verb: 'poner', detail: 'pongo', verbId: 'poner' },
       { verb: 'salir', detail: 'salgo', verbId: 'salir' },
@@ -129,6 +130,7 @@ const irregularFamilies: IrregularFamily[] = [
     description: 'These verbs drop vowels or modify their stem in the future and conditional tenses. The endings remain regular: -é, -ás, -á, -emos, -án (future) and -ía, -ías, -ía, -íamos, -ían (conditional).',
     examples: [
       { verb: 'tener', detail: 'tendr- → tendré, tendría', verbId: 'tener' },
+      { verb: 'estar', detail: 'estar- → estaré, estaría (regular stem)', verbId: 'estar' },
       { verb: 'hacer', detail: 'har- → haré, haría', verbId: 'hacer' },
       { verb: 'poner', detail: 'pondr- → pondré, pondría', verbId: 'poner' },
       { verb: 'salir', detail: 'saldr- → saldré, saldría', verbId: 'salir' },
@@ -139,6 +141,17 @@ const irregularFamilies: IrregularFamily[] = [
     ],
   },
 ];
+
+interface IrregularVerbConjugation {
+  verb: string;
+  english: string;
+  verbId: string;
+  note: string;
+  conjugations: {
+    tense: string;
+    forms: { person: string; form: string }[];
+  }[];
+}
 
 const uniqueIrregulars = [
   {
@@ -154,12 +167,136 @@ const uniqueIrregulars = [
     note: 'Completely irregular. Shares preterite forms with ser (fui, fuiste, fue...).',
   },
   {
+    verb: 'estar',
+    english: 'to be (temporary)',
+    verbId: 'estar',
+    note: 'Irregular yo form (estoy) and preterite stem (estuv-). Used for temporary states, locations, and progressive tenses.',
+  },
+  {
     verb: 'haber',
     english: 'to have (auxiliary)',
     verbId: 'haber',
     note: 'Used as auxiliary verb in compound tenses (he comido, has hablado).',
   },
 ];
+
+const serIrregular: IrregularVerbConjugation = {
+  verb: 'ser',
+  english: 'to be (permanent)',
+  verbId: 'ser',
+  note: 'Completely irregular. Used for identity, origin, time, and inherent characteristics.',
+  conjugations: [
+    {
+      tense: 'Present',
+      forms: [
+        { person: 'yo', form: 'soy' },
+        { person: 'tú', form: 'eres' },
+        { person: 'él/ella/ud.', form: 'es' },
+        { person: 'nosotros', form: 'somos' },
+        { person: 'ellos/uds.', form: 'son' },
+      ],
+    },
+    {
+      tense: 'Preterite',
+      forms: [
+        { person: 'yo', form: 'fui' },
+        { person: 'tú', form: 'fuiste' },
+        { person: 'él/ella/ud.', form: 'fue' },
+        { person: 'nosotros', form: 'fuimos' },
+        { person: 'ellos/uds.', form: 'fueron' },
+      ],
+    },
+    {
+      tense: 'Imperfect',
+      forms: [
+        { person: 'yo', form: 'era' },
+        { person: 'tú', form: 'eras' },
+        { person: 'él/ella/ud.', form: 'era' },
+        { person: 'nosotros', form: 'éramos' },
+        { person: 'ellos/uds.', form: 'eran' },
+      ],
+    },
+    {
+      tense: 'Future',
+      forms: [
+        { person: 'yo', form: 'seré' },
+        { person: 'tú', form: 'serás' },
+        { person: 'él/ella/ud.', form: 'será' },
+        { person: 'nosotros', form: 'seremos' },
+        { person: 'ellos/uds.', form: 'serán' },
+      ],
+    },
+    {
+      tense: 'Conditional',
+      forms: [
+        { person: 'yo', form: 'sería' },
+        { person: 'tú', form: 'serías' },
+        { person: 'él/ella/ud.', form: 'sería' },
+        { person: 'nosotros', form: 'seríamos' },
+        { person: 'ellos/uds.', form: 'serían' },
+      ],
+    },
+  ],
+};
+
+const irIrregular: IrregularVerbConjugation = {
+  verb: 'ir',
+  english: 'to go',
+  verbId: 'ir',
+  note: 'Completely irregular. Shares preterite forms with ser. Used for movement and in the periphrastic future (ir + a + infinitive).',
+  conjugations: [
+    {
+      tense: 'Present',
+      forms: [
+        { person: 'yo', form: 'voy' },
+        { person: 'tú', form: 'vas' },
+        { person: 'él/ella/ud.', form: 'va' },
+        { person: 'nosotros', form: 'vamos' },
+        { person: 'ellos/uds.', form: 'van' },
+      ],
+    },
+    {
+      tense: 'Preterite',
+      forms: [
+        { person: 'yo', form: 'fui' },
+        { person: 'tú', form: 'fuiste' },
+        { person: 'él/ella/ud.', form: 'fue' },
+        { person: 'nosotros', form: 'fuimos' },
+        { person: 'ellos/uds.', form: 'fueron' },
+      ],
+    },
+    {
+      tense: 'Imperfect',
+      forms: [
+        { person: 'yo', form: 'iba' },
+        { person: 'tú', form: 'ibas' },
+        { person: 'él/ella/ud.', form: 'iba' },
+        { person: 'nosotros', form: 'íbamos' },
+        { person: 'ellos/uds.', form: 'iban' },
+      ],
+    },
+    {
+      tense: 'Future',
+      forms: [
+        { person: 'yo', form: 'iré' },
+        { person: 'tú', form: 'irás' },
+        { person: 'él/ella/ud.', form: 'irá' },
+        { person: 'nosotros', form: 'iremos' },
+        { person: 'ellos/uds.', form: 'irán' },
+      ],
+    },
+    {
+      tense: 'Conditional',
+      forms: [
+        { person: 'yo', form: 'iría' },
+        { person: 'tú', form: 'irías' },
+        { person: 'él/ella/ud.', form: 'iría' },
+        { person: 'nosotros', form: 'iríamos' },
+        { person: 'ellos/uds.', form: 'irían' },
+      ],
+    },
+  ],
+};
 
 function EndingsTable({ type, tense }: { type: 'ar' | 'er' | 'ir'; tense: Tense }) {
   const endings = regularEndings[type][tense];
@@ -399,6 +536,286 @@ export function PatternsScreen({ onVerbSelect }: PatternsScreenProps) {
                 <p className="unique-irregular-note">{item.note}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="pattern-section">
+          <h2 className="pattern-section-title">Ser — Full Conjugation</h2>
+          <p className="pattern-section-description">
+            {serIrregular.note}
+          </p>
+
+          <div className="ser-ir-conjugation-grid">
+            <div className="ser-ir-conjugation-card">
+              <div className="ser-ir-card-header">
+                <h3 className="ser-ir-verb-name">
+                  <button className="verb-link" onClick={() => onVerbSelect?.(serIrregular.verbId)}>
+                    {serIrregular.verb}
+                  </button>
+                </h3>
+                <span className="ser-ir-verb-english">{serIrregular.english}</span>
+              </div>
+              {serIrregular.conjugations.map((tense) => (
+                <div key={tense.tense} className="ser-ir-tense-block">
+                  <h4 className="ser-ir-tense-label">{tense.tense}</h4>
+                  <table className="ser-ir-conjugation-table">
+                    <tbody>
+                      {tense.forms.map((form) => (
+                        <tr key={form.person}>
+                          <td className="ser-ir-person-cell">{form.person}</td>
+                          <td className="ser-ir-form-cell">{form.form}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pattern-section">
+          <h2 className="pattern-section-title">Ir — Full Conjugation</h2>
+          <p className="pattern-section-description">
+            {irIrregular.note}
+          </p>
+
+          <div className="ser-ir-conjugation-grid">
+            <div className="ser-ir-conjugation-card">
+              <div className="ser-ir-card-header">
+                <h3 className="ser-ir-verb-name">
+                  <button className="verb-link" onClick={() => onVerbSelect?.(irIrregular.verbId)}>
+                    {irIrregular.verb}
+                  </button>
+                </h3>
+                <span className="ser-ir-verb-english">{irIrregular.english}</span>
+              </div>
+              {irIrregular.conjugations.map((tense) => (
+                <div key={tense.tense} className="ser-ir-tense-block">
+                  <h4 className="ser-ir-tense-label">{tense.tense}</h4>
+                  <table className="ser-ir-conjugation-table">
+                    <tbody>
+                      {tense.forms.map((form) => (
+                        <tr key={form.person}>
+                          <td className="ser-ir-person-cell">{form.person}</td>
+                          <td className="ser-ir-form-cell">{form.form}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pattern-section">
+          <h2 className="pattern-section-title">Tener — Full Conjugation</h2>
+          <p className="pattern-section-description">
+            Irregular yo form (tengo), stem-changing e→ie in present, irregular preterite stem (tuv-), and irregular future/conditional stem (tendr-).
+          </p>
+
+          <div className="ser-ir-conjugation-grid">
+            <div className="ser-ir-conjugation-card">
+              <div className="ser-ir-card-header">
+                <h3 className="ser-ir-verb-name">
+                  <button className="verb-link" onClick={() => onVerbSelect?.('tener')}>
+                    tener
+                  </button>
+                </h3>
+                <span className="ser-ir-verb-english">to have</span>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Present</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">tengo</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">tienes</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">tiene</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">tenemos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">tienen</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Preterite</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">tuve</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">tuviste</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">tuvo</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">tuvimos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">tuvieron</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Imperfect</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">tenía</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">tenías</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">tenía</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">teníamos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">tenían</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Future</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">tendré</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">tendrás</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">tendrá</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">tendremos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">tendrán</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Conditional</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">tendría</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">tendrías</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">tendría</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">tendríamos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">tendrían</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="pattern-section">
+          <h2 className="pattern-section-title">Estar — Full Conjugation</h2>
+          <p className="pattern-section-description">
+            Irregular yo form (estoy) in present, irregular preterite stem (estuv-), regular imperfect and future/conditional. Used for temporary states, locations, and progressive tenses.
+          </p>
+
+          <div className="ser-ir-conjugation-grid">
+            <div className="ser-ir-conjugation-card">
+              <div className="ser-ir-card-header">
+                <h3 className="ser-ir-verb-name">
+                  <button className="verb-link" onClick={() => onVerbSelect?.('estar')}>
+                    estar
+                  </button>
+                </h3>
+                <span className="ser-ir-verb-english">to be (temporary)</span>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Present</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">estoy</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">estás</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">está</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">estamos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">están</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Preterite</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">estuve</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">estuviste</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">estuvo</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">estuvimos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">estuvieron</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Imperfect</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">estaba</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">estabas</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">estaba</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">estábamos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">estaban</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Future</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">estaré</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">estarás</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">estará</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">estaremos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">estarán</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="ser-ir-tense-block">
+                <h4 className="ser-ir-tense-label">Conditional</h4>
+                <table className="ser-ir-conjugation-table">
+                  <tbody>
+                    <tr><td className="ser-ir-person-cell">yo</td><td className="ser-ir-form-cell">estaría</td></tr>
+                    <tr><td className="ser-ir-person-cell">tú</td><td className="ser-ir-form-cell">estarías</td></tr>
+                    <tr><td className="ser-ir-person-cell">él/ella/ud.</td><td className="ser-ir-form-cell">estaría</td></tr>
+                    <tr><td className="ser-ir-person-cell">nosotros</td><td className="ser-ir-form-cell">estaríamos</td></tr>
+                    <tr><td className="ser-ir-person-cell">ellos/uds.</td><td className="ser-ir-form-cell">estarían</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="pattern-section">
+          <h2 className="pattern-section-title">Ser vs Ir — Shared Preterite Forms</h2>
+          <p className="pattern-section-description">
+            <strong>ser</strong> and <strong>ir</strong> share identical preterite conjugations. Context determines which verb is meant.
+          </p>
+
+          <div className="shared-preterite-card">
+            <table className="shared-preterite-table">
+              <thead>
+                <tr>
+                  <th>Person</th>
+                  <th>Preterite Form</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="person-cell">yo</td>
+                  <td className="form-cell shared">fui</td>
+                </tr>
+                <tr>
+                  <td className="person-cell">tú</td>
+                  <td className="form-cell shared">fuiste</td>
+                </tr>
+                <tr>
+                  <td className="person-cell">él/ella/ud.</td>
+                  <td className="form-cell shared">fue</td>
+                </tr>
+                <tr>
+                  <td className="person-cell">nosotros</td>
+                  <td className="form-cell shared">fuimos</td>
+                </tr>
+                <tr>
+                  <td className="person-cell">ellos/uds.</td>
+                  <td className="form-cell shared">fueron</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="shared-preterite-examples">
+              <div className="example-row">
+                <span className="example-verb-tag ser-tag">ser</span>
+                <span className="example-sentence">Fui estudiante. (I was a student.)</span>
+              </div>
+              <div className="example-row">
+                <span className="example-verb-tag ir-tag">ir</span>
+                <span className="example-sentence">Fui al cine. (I went to the movies.)</span>
+              </div>
+            </div>
           </div>
         </section>
       </div>

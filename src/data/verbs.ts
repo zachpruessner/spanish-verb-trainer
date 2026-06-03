@@ -69,6 +69,19 @@ export const verbs: Verb[] = [
     },
   },
   {
+    id: 'estar',
+    infinitive: 'estar',
+    english: 'to be (temporary)',
+    type: 'irregular',
+    conjugations: {
+      present: { yo: 'estoy', 'tú': 'estás', 'él': 'está', nosotros: 'estamos', ellos: 'están' },
+      preterite: { yo: 'estuve', 'tú': 'estuviste', 'él': 'estuvo', nosotros: 'estuvimos', ellos: 'estuvieron' },
+      imperfect: { yo: 'estaba', 'tú': 'estabas', 'él': 'estaba', nosotros: 'estábamos', ellos: 'estaban' },
+      future: { yo: 'estaré', 'tú': 'estarás', 'él': 'estará', nosotros: 'estaremos', ellos: 'estarán' },
+      conditional: { yo: 'estaría', 'tú': 'estarías', 'él': 'estaría', nosotros: 'estaríamos', ellos: 'estarían' },
+    },
+  },
+  {
     id: 'ser',
     infinitive: 'ser',
     english: 'to be (permanent)',
